@@ -1,0 +1,42 @@
+.header {
+  background: #dc9000;
+  width: 100%;
+  height: 55px;
+  margin: 0;
+  position: fixed;
+  top: 0;
+  display: flex;
+  justify-content: space-between;
+  box-sizing: border-box;
+}
+
+.material-symbols-outlined {
+  color: #ffffff;
+  font-weight: 400;
+  font-size: 32px;
+}
+
+.profile-image {
+  width: 38px;
+  height: 38px;
+}
+
+.small {
+  font-weight: 400;
+  font-size: 28px;
+}
+
+.header-container-left {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+}
+
+.header-container-right {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 121px;
+  padding: 0 8px;
+}

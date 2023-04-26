@@ -6,8 +6,8 @@ type Props = {
   alt: string;
 };
 
-const ProductImage: FC<Props> = ({ src, alt }) => {
+const Image: FC<Props> = ({ src, alt }) => {
   return <img className="product-image" src={src} alt={alt}></img>;
 };
 
-export default ProductImage;
+export default Image;

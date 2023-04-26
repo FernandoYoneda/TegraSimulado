@@ -1,0 +1,17 @@
+.container-image {
+  width: 60px;
+  height: 60px;
+}
+
+.container-product-info {
+  display: flex;
+  flex-direction: column;
+  width: 52%;
+}
+
+.container-product-buy {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 22%;
+}

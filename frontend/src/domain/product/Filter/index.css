@@ -1,0 +1,41 @@
+.filter-container {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 16px;
+}
+
+.filter-option {
+  display: flex;
+  justify-content: space-between;
+  width: 149px;
+}
+
+.filter-icon-buttons {
+  display: flex;
+  width: 71px;
+  justify-content: space-between;
+}
+
+.orange {
+  color: #dc9000;
+  font-size: 28px;
+}
+
+.product-label {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  color: #223263;
+}
+
+.option {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  color: #dc9000;
+}
+
+.option > u {
+  text-decoration-thickness: 2px;
+  text-underline-offset: 5px;
+}
