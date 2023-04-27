@@ -2,7 +2,7 @@
   display: flex;
   box-sizing: border-box;
 
-  border: 0.25px solid #000000;
+  border: 0.25px solid #d3c8c8;
   box-shadow: 3px 3px 8px 1px rgba(0, 0, 0, 0.3);
   border-radius: 8px;
   height: 100px;

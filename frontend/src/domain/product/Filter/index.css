@@ -2,11 +2,11 @@
   display: flex;
   justify-content: space-between;
   padding: 0 16px;
+  margin-top: 75px;
 }
 
 .filter-option {
   display: flex;
-  justify-content: space-between;
   width: 149px;
 }
 
@@ -26,6 +26,7 @@
   font-weight: 700;
   font-size: 18px;
   color: #223263;
+  margin-right: 5px;
 }
 
 .option {
@@ -33,6 +34,14 @@
   font-weight: 700;
   font-size: 18px;
   color: #dc9000;
+}
+
+.underline {
+  background-image: linear-gradient(orange 0 0);
+  background-position: bottom center;
+  background-repeat: no-repeat;
+  padding-bottom: 2px;
+  background-size: 79% 1px;
 }
 
 .option > u {
