@@ -11,7 +11,9 @@ const Modal: FC<ModalProps> = ({ openModal, onCloseModal }) => {
   return (
     <div
       onClick={(e) => {
-        onCloseModal(null);
+        if (openModal) {
+          onCloseModal(null);
+        }
         e.stopPropagation();
       }}
       className={`modal-container ${openModal ? "modal-container-open" : ""}`}
@@ -23,7 +25,9 @@ const Modal: FC<ModalProps> = ({ openModal, onCloseModal }) => {
             text="R$5 à R$25"
             variant="small"
             onClick={(e) => {
-              onCloseModal({ from: 5, to: 25 });
+              if (openModal) {
+                onCloseModal({ from: 5, to: 25 });
+              }
               e.stopPropagation();
             }}
           ></Button>
@@ -31,7 +35,9 @@ const Modal: FC<ModalProps> = ({ openModal, onCloseModal }) => {
             text="R$26 à R$45"
             variant="small"
             onClick={(e) => {
-              onCloseModal({ from: 26, to: 45 });
+              if (openModal) {
+                onCloseModal({ from: 26, to: 45 });
+              }
               e.stopPropagation();
             }}
           ></Button>
@@ -39,7 +45,9 @@ const Modal: FC<ModalProps> = ({ openModal, onCloseModal }) => {
             text="R$46 ou mais"
             variant="small"
             onClick={(e) => {
-              onCloseModal({ from: 46, to: Infinity });
+              if (openModal) {
+                onCloseModal({ from: 46, to: Infinity });
+              }
               e.stopPropagation();
             }}
           ></Button>

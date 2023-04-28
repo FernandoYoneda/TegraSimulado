@@ -13,8 +13,7 @@ const container = document.getElementById("root")!;
 const root = createRoot(container);
 
 const router = createBrowserRouter([
-  { path: "/", element: <div></div> },
-  { path: "/produtos", element: <Products /> },
+  { path: "/", element: <Products /> },
   { path: "/carrinho", element: <Cart /> },
 ]);
 
