@@ -21,7 +21,7 @@ const Products = () => {
   const [priceFilter, setPriceFilter] = useState<null | {
     from: number;
     to: number;
-  }>({ from: 0, to: 0 });
+  }>(null);
 
   useEffect(() => {
     function loadProducts() {
