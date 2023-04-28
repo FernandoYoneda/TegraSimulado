@@ -1,0 +1,14 @@
+.filter-container {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 16px;
+  margin-top: 75px;
+}
+
+.product-label {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  color: #223263;
+  margin-right: 5px;
+}

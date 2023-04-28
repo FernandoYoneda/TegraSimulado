@@ -7,9 +7,15 @@ type SideBarProps = {
   menuOpen: boolean;
   onClose: () => void;
   onCategoryChange: (category: string) => void;
+  categorySelected: string;
 };
 
-const SideBar: FC<SideBarProps> = ({ menuOpen, onClose, onCategoryChange }) => {
+const SideBar: FC<SideBarProps> = ({
+  menuOpen,
+  onClose,
+  onCategoryChange,
+  categorySelected,
+}) => {
   return (
     <>
       <div
@@ -24,24 +30,50 @@ const SideBar: FC<SideBarProps> = ({ menuOpen, onClose, onCategoryChange }) => {
         <div className="sidebar-filter">
           <ul>
             <li>
-              <button onClick={() => onCategoryChange("Todos")}>Todos</button>
+              <button
+                className={categorySelected === "Todos" ? "selected" : ""}
+                onClick={() => onCategoryChange("Todos")}
+              >
+                Todos
+              </button>
             </li>
             <li>
-              <button onClick={() => onCategoryChange("Pizza")}>Pizza</button>
+              <button
+                className={categorySelected === "Pizza" ? "selected" : ""}
+                onClick={() => onCategoryChange("Pizza")}
+              >
+                Pizza
+              </button>
             </li>
             <li>
-              <button onClick={() => onCategoryChange("Sobremesa")}>
+              <button
+                className={categorySelected === "Sobremesa" ? "selected" : ""}
+                onClick={() => onCategoryChange("Sobremesa")}
+              >
                 Sobremesa
               </button>
             </li>
             <li>
-              <button onClick={() => onCategoryChange("Pastel")}>Pastel</button>
+              <button
+                className={categorySelected === "Pastel" ? "selected" : ""}
+                onClick={() => onCategoryChange("Pastel")}
+              >
+                Pastel
+              </button>
             </li>
             <li>
-              <button onClick={() => onCategoryChange("Açaí")}>Açaí</button>
+              <button
+                className={categorySelected === "Açaí" ? "selected" : ""}
+                onClick={() => onCategoryChange("Açaí")}
+              >
+                Açaí
+              </button>
             </li>
             <li>
-              <button onClick={() => onCategoryChange("Bebidas")}>
+              <button
+                className={categorySelected === "Bebidas" ? "selected" : ""}
+                onClick={() => onCategoryChange("Bebidas")}
+              >
                 Bebidas
               </button>
             </li>

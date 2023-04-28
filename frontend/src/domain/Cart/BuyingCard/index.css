@@ -1,0 +1,35 @@
+.buyingcard-container {
+  padding: 0 4px;
+  margin-top: 20px;
+}
+
+.buyingcard {
+  height: 100px;
+  width: 100%;
+  border: 0.25px solid #d3c8c8;
+  box-shadow: 3px 3px 8px 1px rgba(0, 0, 0, 0.3);
+  border-radius: 8px;
+  box-sizing: border-box;
+  padding: 20px 6px;
+  margin-top: 4px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.container-image {
+  width: 60px;
+  height: 60px;
+}
+
+.container-product-info {
+  display: flex;
+  flex-direction: column;
+  width: 52%;
+}
+
+.container-product-buy {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 22%;
+}

@@ -44,7 +44,7 @@
   border: 1px solid #ffffff;
 }
 
-.products-sidebar button:focus {
+.products-sidebar .selected {
   background-color: #e6a11f;
 }
 
