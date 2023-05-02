@@ -11,47 +11,68 @@ import SideBar from "../domain/product/SideBar";
 import ProductsList from "../domain/product/ProductsList";
 import BuyNotification from "../domain/product/Notification/Buy";
 import Modal from "../domain/product/Modal";
+import SortNotification from "../domain/product/Notification/Sort";
 
 const Products = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [category, setCategory] = useState("Todos");
   const [notificationOpen, setNotificationOpen] = useState(false);
+  const [sortNotificationOpen, setSortNotificationOpen] = useState(false);
   const [modalOpen, setModalOpen] = useState(false);
   const [productsLoaded, setProductsLoaded] = useState<Product[]>([]);
   const [priceFilter, setPriceFilter] = useState<null | {
     from: number;
     to: number;
   }>(null);
+  const [sortFilter, setSortFilter] = useState<null | string>(null);
 
   useEffect(() => {
     function loadProducts() {
-      return (
-        Promise.resolve(products)
-          .then((p) => {
-            if (category === "Todos") return p;
-            else {
-              return p.filter((x) => x.category === category);
-            }
-          })
-          .then((p) => {
-            if (!priceFilter) {
-              return p;
+      return Promise.resolve(products)
+        .then((p) => {
+          if (category === "Todos") return p;
+          else {
+            return p.filter((x) => x.category === category);
+          }
+        })
+        .then((p) => {
+          if (!priceFilter) {
+            return p;
+          } else {
+            return p.filter(
+              (x) => x.price >= priceFilter.from && x.price <= priceFilter.to
+            );
+          }
+        })
+        .then((p) =>
+          [...p].sort((x, y) => {
+            if (!sortFilter) {
+              return 0;
+            } else if (sortFilter === "asc") {
+              return x.name > y.name ? 1 : -1;
             } else {
-              return p.filter(
-                (x) => x.price >= priceFilter.from && x.price <= priceFilter.to
-              );
+              return x.name > y.name ? -1 : 1;
             }
           })
-          //.then((p) => p.sort((x,y) => x.price - y.price))
-          .then(setProductsLoaded)
-      );
+        )
+        .then(setProductsLoaded);
     }
     loadProducts();
     if (notificationOpen) {
       const timer = setTimeout(() => setNotificationOpen(false), 3000);
       return () => clearTimeout(timer);
     }
-  }, [notificationOpen, category, priceFilter]);
+    if (sortNotificationOpen) {
+      const timer = setTimeout(() => setSortNotificationOpen(false), 3000);
+      return () => clearTimeout(timer);
+    }
+  }, [
+    notificationOpen,
+    category,
+    priceFilter,
+    sortFilter,
+    sortNotificationOpen,
+  ]);
 
   return (
     <div>
@@ -62,12 +83,33 @@ const Products = () => {
         onCategoryChange={(c) => setCategory(c)}
       />
       <Header onMenuOpen={() => setMenuOpen((old) => !old)} />
-      <Filter category={category} onFilterClick={() => setModalOpen(true)} />
+      <Filter
+        onSortClick={() => {
+          setSortFilter((filter) => {
+            if (!filter) {
+              return "asc";
+            }
+            return filter === "asc" ? "desc" : "asc";
+          });
+          setSortNotificationOpen(true);
+        }}
+        category={category}
+        onFilterClick={() => setModalOpen(true)}
+        filterOption={priceFilter}
+        sortOption={sortFilter}
+      />
       <ProductsList
         onBuy={() => setNotificationOpen(true)}
         products={productsLoaded}
       />
       <BuyNotification openBuyNotification={notificationOpen} />
+      <SortNotification
+        openSortNotification={sortNotificationOpen}
+        onClose={() => {
+          setSortFilter(null);
+          setSortNotificationOpen(false);
+        }}
+      />
       <Modal
         openModal={modalOpen}
         onCloseModal={(x) => {

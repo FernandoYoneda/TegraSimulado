@@ -11,8 +11,8 @@ import imageSVG from "../assets/image/mikael-stenberg-cJeGGOI8eE0-unsplash.jpg";
 import ProductsList from "../domain/product/ProductsList";
 import BuyNotification from "../domain/product/Notification/Buy";
 import Modal from "../domain/product/Modal";
-import CartTitle from "../domain/Cart/Title";
-import BuyingCard from "../domain/Cart/BuyingCard";
+import CartTitle from "../domain/cart/Title";
+import BuyingCard from "../domain/cart/BuyingCard";
 
 const Cart = () => {
   const [menuOpen, setMenuOpen] = useState(false);

@@ -19,6 +19,7 @@
 .orange {
   color: #dc9000;
   font-size: 28px;
+  cursor: pointer;
 }
 
 .product-label {
@@ -47,4 +48,8 @@
 .option > u {
   text-decoration-thickness: 2px;
   text-underline-offset: 5px;
+}
+
+.filter-icon-buttons .selected {
+  color: #c8c8c8;
 }

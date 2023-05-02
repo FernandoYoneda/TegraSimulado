@@ -5,6 +5,7 @@ import ProductDescriptionLabel from "../../../components/Label/Product/Descripti
 import Image from "../../../components/Image";
 import ProductNameLabel from "../../../components/Label/Product/Name";
 import { FC } from "react";
+import Select from "../../../components/Select";
 
 type BuyingCardProps = {
   image: string;
@@ -38,8 +39,9 @@ const BuyingCard: FC<BuyingCardProps> = ({
               currency: "BRL",
             }).format(price)}
           />
-          <Button onClick={onClick} text="Comprar" variant="small" />
+          <Select />
         </div>
+        <span className="material-symbols-outlined close">close</span>
       </div>
       <div className="buyingcard"></div>
       <div className="buyingcard"></div>

@@ -44,6 +44,10 @@
   border: 1px solid #ffffff;
 }
 
+.products-sidebar button:hover {
+  background-color: #e6a11f;
+}
+
 .products-sidebar .selected {
   background-color: #e6a11f;
 }
