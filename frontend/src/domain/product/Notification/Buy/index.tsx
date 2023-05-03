@@ -1,5 +1,6 @@
 import { FC } from "react";
 import "./index.css";
+import { Link } from "react-router-dom";
 
 type BuyNotificationProps = {
   openBuyNotification: boolean;
@@ -15,7 +16,9 @@ const BuyNotification: FC<BuyNotificationProps> = ({ openBuyNotification }) => {
       <label className="buy-notification-text">
         ítem adicionado ao carrinho
       </label>
-      <label className="buy-notification-link">ir para o carrinho</label>
+      <Link to="/carrinho" className="buy-notification-link">
+        ir para o carrinho
+      </Link>
     </div>
   );
 };

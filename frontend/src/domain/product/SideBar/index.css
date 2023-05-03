@@ -7,6 +7,7 @@
   z-index: 100;
   left: -225px;
   transition: all 0.5s ease-in-out;
+  overflow: overlay;
 }
 
 .products-sidebar-open {

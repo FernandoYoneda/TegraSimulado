@@ -8,11 +8,13 @@ import SideBar from "../domain/product/SideBar";
 import imageSVG from "../assets/image/mikael-stenberg-cJeGGOI8eE0-unsplash.jpg";
 
 //pages
-import ProductsList from "../domain/product/ProductsList";
 import BuyNotification from "../domain/product/Notification/Buy";
 import Modal from "../domain/product/Modal";
 import CartTitle from "../domain/cart/Title";
-import BuyingCard from "../domain/cart/BuyingCard";
+import BuyingCards from "../domain/cart/BuyingCard";
+import DiscountCard from "../domain/cart/DiscountCard";
+import PriceTable from "../domain/cart/PriceTable";
+import Footer from "../domain/cart/Footer";
 
 const Cart = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -36,15 +38,43 @@ const Cart = () => {
       />
       <Header onMenuOpen={() => setMenuOpen((old) => !old)} />
       <CartTitle />
-      <BuyingCard
-        image={imageSVG}
-        name={"Coca-cola Zero"}
-        description={"(esse produto é feito com cola, e é zero açucar)"}
-        price={5.0}
-        onClick={function (): void {
+      <BuyingCards
+        products={[
+          {
+            id: 1,
+            image: imageSVG,
+            name: "Coca-cola Zero",
+            description: "(esse produto é feito com cola, e é zero açucar)",
+            price: 5.0,
+            category: "Bebidas",
+          },
+          {
+            id: 2,
+            image: imageSVG,
+            name: "Coca-cola Zero",
+            description: "(esse produto é feito com cola, e é zero açucar)",
+            price: 5.0,
+            category: "Bebidas",
+          },
+          {
+            id: 3,
+            image: imageSVG,
+            name: "Coca-cola Zero",
+            description: "(esse produto é feito com cola, e é zero açucar)",
+            price: 5.0,
+            category: "Bebidas",
+          },
+        ]}
+        onRemove={function (): void {
+          throw new Error("Function not implemented.");
+        }}
+        onAmountChange={function (id: number, amount: number): void {
           throw new Error("Function not implemented.");
         }}
       />
+      <DiscountCard />
+      <PriceTable />
+      <Footer />
       <BuyNotification openBuyNotification={notificationOpen} />
       <Modal openModal={modalOpen} onCloseModal={() => setModalOpen(false)} />
     </div>

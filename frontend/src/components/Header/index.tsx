@@ -2,6 +2,7 @@ import "./index.css";
 import Image from "../Image";
 import imageSVG from "../../assets/image/unsplash_mEZ3PoFGs_k.svg";
 import { FC } from "react";
+import { Link } from "react-router-dom";
 
 type HeaderProps = {
   onMenuOpen: () => void;
@@ -16,7 +17,10 @@ const Header: FC<HeaderProps> = ({ onMenuOpen }) => {
         </span>
       </div>
       <div className="header-container-right">
-        <span className="material-symbols-outlined small">shopping_cart</span>
+        <Link to="/carrinho">
+          <span className="material-symbols-outlined small">shopping_cart</span>
+        </Link>
+
         <span className="material-symbols-outlined small">notifications</span>
         <div className="profile-image">
           <Image src={imageSVG} alt={"Foto de perfil"} />
