@@ -13,7 +13,7 @@ import BuyNotification from "../domain/product/Notification/Buy";
 import Modal from "../domain/product/Modal";
 import SortNotification from "../domain/product/Notification/Sort";
 
-const Products = () => {
+const ProductsPage = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [category, setCategory] = useState("Todos");
   const [notificationOpen, setNotificationOpen] = useState(false);
@@ -121,4 +121,4 @@ const Products = () => {
   );
 };
 
-export default Products;
+export default ProductsPage;

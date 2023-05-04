@@ -1,0 +1,9 @@
+.register-container {
+  padding: 100px 16px;
+  box-sizing: border-box;
+  width: 375px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin: auto;
+}

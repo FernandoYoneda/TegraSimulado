@@ -1,0 +1,21 @@
+.googlebutton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  border: 1px solid #ebf0ff;
+  border-radius: 5px;
+  height: 56px;
+}
+
+.google-logo {
+  position: absolute;
+  left: 20px;
+}
+
+.googlebutton-text {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 12px;
+  color: #9098b1;
+}

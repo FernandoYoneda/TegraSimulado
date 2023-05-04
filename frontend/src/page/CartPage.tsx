@@ -16,7 +16,7 @@ import DiscountCard from "../domain/cart/DiscountCard";
 import PriceTable from "../domain/cart/PriceTable";
 import Footer from "../domain/cart/Footer";
 
-const Cart = () => {
+const CartPage = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [category, setCategory] = useState("Todos");
   const [notificationOpen, setNotificationOpen] = useState(false);
@@ -81,4 +81,4 @@ const Cart = () => {
   );
 };
 
-export default Cart;
+export default CartPage;

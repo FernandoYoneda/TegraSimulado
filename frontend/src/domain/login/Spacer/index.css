@@ -1,0 +1,21 @@
+.spacer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 25px;
+}
+
+.spacer-line {
+  border: 1px solid #ebf0ff;
+}
+
+.spacer-line-container {
+  width: 100%;
+}
+
+.spacer-text {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  color: #9098b1;
+}
