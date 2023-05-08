@@ -56,3 +56,45 @@
 .logo-tegrafood {
   padding: 28px;
 }
+
+@media only screen and (min-width: 1024px) {
+  .products-sidebar {
+    position: inherit;
+    width: 225px;
+    height: inherit;
+    background-color: #6a0000;
+    transition: none;
+    overflow: auto;
+    min-height: 100vh;
+    min-width: 225px;
+  }
+
+  .sidebar-background {
+    display: none;
+  }
+
+  .sidebar-background-open {
+    z-index: 0;
+    background-color: #00000000;
+  }
+
+  .products-page-container {
+    display: flex;
+  }
+
+  .products-main-content-container {
+    width: 100%;
+  }
+
+  .cart-page-container {
+    display: flex;
+  }
+
+  .cart-main-content-container {
+    width: 100%;
+  }
+
+  .cart-page-container .products-sidebar {
+    display: none;
+  }
+}

@@ -20,7 +20,7 @@ const SideBar: FC<SideBarProps> = ({
     <>
       <div
         onClick={onClose}
-        className={`products-sidebar  ${
+        className={`products-sidebar ${
           menuOpen ? "products-sidebar-open " : ""
         }`}
       >

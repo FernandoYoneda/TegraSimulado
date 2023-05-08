@@ -53,3 +53,22 @@
 .discountcard-add button:hover {
   background: #b67600;
 }
+
+@media only screen and (min-width: 1024px) {
+  .discountcard {
+    width: 704px;
+    min-width: 704px;
+    height: 128px;
+    box-sizing: border-box;
+    padding: 0 40px;
+  }
+
+  .discountcard label {
+    font-size: 24px;
+  }
+
+  .discountcard-add input {
+    width: 200px;
+  }
+
+}

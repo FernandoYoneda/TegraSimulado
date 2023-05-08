@@ -33,3 +33,10 @@
   border: none;
   cursor: pointer;
 }
+
+@media only screen and (min-width: 1024px) {
+  .sort-notification-container {
+    width: 570px;
+    transform: translate(calc(50vw - 50%));
+  }
+}

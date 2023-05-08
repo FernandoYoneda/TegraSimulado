@@ -22,7 +22,7 @@
   cursor: pointer;
 }
 
-.product-label {
+.filter-product-label {
   font-style: normal;
   font-weight: 700;
   font-size: 18px;
@@ -52,4 +52,28 @@
 
 .filter-icon-buttons .selected {
   color: #c8c8c8;
+}
+
+@media only screen and (min-width: 1024px) {
+  .filter-container {
+    margin-top: 50px;
+    padding: 0 32px;
+  }
+
+  .filter-product-label {
+    font-size: 32px;
+    margin-right: 20px;
+  }
+
+  .filter-option .option {
+    font-size: 32px;
+  }
+
+  .orange {
+    font-size: 35px;
+  }
+
+  .filter-icon-buttons {
+    width: 96px;
+  }
 }

@@ -54,3 +54,24 @@
   font-size: 8px;
   color: #000000;
 }
+
+@media only screen and (min-width: 1024px) {
+  .pricetable {
+    width: inherit;
+    margin-left: 10px;
+  }
+
+  .pricetable-container {
+    width: 405px;
+  }
+
+  .pricetable .c1 {
+    width: 220px;
+    height: 54px;
+  }
+
+  .pricetable .c2 {
+    width: 180px;
+    height: 54px;
+  }
+}

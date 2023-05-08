@@ -22,14 +22,16 @@ const BuyingCards: FC<BuyingCardsProps> = ({
     <div className="buyingcard-container">
       {products.map((p) => (
         <div key={p.id} className="buyingcard">
-          <div className="container-image">
-            <Image src={p.image} alt={p.name} />
+          <div className="image-spacing">
+            <div className="container-image">
+              <Image src={p.image} alt={p.name} />
+            </div>
           </div>
-          <div className="container-product-info">
+          <div className="container-cart-product-info">
             <ProductNameLabel text={p.name} />
             <ProductDescriptionLabel text={p.description} />
           </div>
-          <div className="container-product-buy">
+          <div className="container-cart-product-buy">
             <PriceLabel
               text={new Intl.NumberFormat("pt-BR", {
                 style: "currency",
@@ -44,9 +46,7 @@ const BuyingCards: FC<BuyingCardsProps> = ({
           <span
             className="material-symbols-outlined close"
             onClick={() => onRemove(p.id)}
-          >
-            close
-          </span>
+          ></span>
         </div>
       ))}
     </div>

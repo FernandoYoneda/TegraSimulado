@@ -19,7 +19,7 @@ const Filter: FC<FilterProps> = ({
   return (
     <div className="filter-container">
       <div className="filter-option">
-        <label className="product-label">Produtos</label>
+        <label className="filter-product-label">Produtos</label>
         <label className="option small underline">{category}</label>
       </div>
       <div className="filter-icon-buttons">

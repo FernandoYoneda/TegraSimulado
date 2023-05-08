@@ -23,8 +23,10 @@ const ProductCard: FC<ProductCardProps> = ({
 }) => {
   return (
     <Card>
-      <div className="container-image">
-        <Image src={image} alt={name} />
+      <div className="image-spacing">
+        <div className="container-image">
+          <Image src={image} alt={name} />
+        </div>
       </div>
       <div className="container-product-info">
         <ProductNameLabel text={name} />

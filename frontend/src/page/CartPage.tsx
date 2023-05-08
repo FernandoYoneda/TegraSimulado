@@ -11,8 +11,6 @@ import Header from "../components/Header";
 import SideBar from "../domain/product/SideBar";
 
 //pages
-import BuyNotification from "../domain/product/Notification/Buy";
-import Modal from "../domain/product/Modal";
 import CartTitle from "../domain/cart/Title";
 import BuyingCards from "../domain/cart/BuyingCard";
 import DiscountCard from "../domain/cart/DiscountCard";
@@ -23,7 +21,6 @@ const CartPage = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [category, setCategory] = useState("Todos");
   const [notificationOpen, setNotificationOpen] = useState(false);
-  const [modalOpen, setModalOpen] = useState(false);
   const products = useAppSelector(selectProducts);
   const dispatch = useAppDispatch();
 
@@ -34,27 +31,32 @@ const CartPage = () => {
     }
   }, [notificationOpen]);
   return (
-    <div>
+    <div className="cart-page-container">
       <SideBar
         categorySelected={category}
         menuOpen={menuOpen}
         onClose={() => setMenuOpen(false)}
         onCategoryChange={(c) => setCategory(c)}
       />
-      <Header onMenuOpen={() => setMenuOpen((old) => !old)} />
-      <CartTitle />
-      <BuyingCards
-        products={products}
-        onRemove={(id) => dispatch(removeProductById(id))}
-        onAmountChange={(id, amount) =>
-          dispatch(incrementByAmount({ id, amount }))
-        }
-      />
-      <DiscountCard />
-      <PriceTable />
-      <Footer />
-      <BuyNotification openBuyNotification={notificationOpen} />
-      <Modal openModal={modalOpen} onCloseModal={() => setModalOpen(false)} />
+
+      <div className="cart-main-content-container">
+        <Header onMenuOpen={() => setMenuOpen((old) => !old)} />
+        <div className="cart-products-container">
+          <CartTitle />
+          <BuyingCards
+            products={products}
+            onRemove={(id) => dispatch(removeProductById(id))}
+            onAmountChange={(id, amount) =>
+              dispatch(incrementByAmount({ id, amount }))
+            }
+          />
+          <div className="discount-price-container">
+            <DiscountCard />
+            <PriceTable />
+          </div>
+          <Footer />
+        </div>
+      </div>
     </div>
   );
 };

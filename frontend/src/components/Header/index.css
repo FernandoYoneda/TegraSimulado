@@ -44,14 +44,34 @@
   padding: 0 8px;
 }
 
-.header-container-right {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 121px;
-  padding: 0 8px;
-}
-
 .header-container-right a {
   height: 28px;
+}
+
+@media only screen and (min-width: 1024px) {
+  .header {
+    background: #dc9000;
+    width: 100%;
+    height: 80px;
+    margin: 0;
+    position: relative;
+    top: 0;
+    display: flex;
+    justify-content: space-between;
+    box-sizing: border-box;
+    box-shadow: 3px 3px 8px 1px rgba(0, 0, 0, 0.3);
+    z-index: 25;
+  }
+
+  .header-container-left span {
+    display: none;
+  }
+
+  .material-symbols-outlined {
+    font-size: 35px;
+  }
+
+  .header-container-right {
+    width: 154px;
+  }
 }

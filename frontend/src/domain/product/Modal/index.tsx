@@ -19,7 +19,7 @@ const Modal: FC<ModalProps> = ({ openModal, onCloseModal }) => {
       className={`modal-container ${openModal ? "modal-container-open" : ""}`}
     >
       <div className="modal-filter" onClick={(e) => e.stopPropagation()}>
-        <label> Filtrar por preço:</label>
+        <label className="modal-filter-title"> Filtrar por preço:</label>
         <div className="button-container">
           <Button
             text="R$5 à R$25"

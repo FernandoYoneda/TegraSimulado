@@ -78,36 +78,38 @@ const ProductsPage = () => {
   ]);
 
   return (
-    <div>
+    <div className="products-page-container">
       <SideBar
         categorySelected={category}
         menuOpen={menuOpen}
         onClose={() => setMenuOpen(false)}
         onCategoryChange={(c) => setCategory(c)}
       />
-      <Header onMenuOpen={() => setMenuOpen((old) => !old)} />
-      <Filter
-        onSortClick={() => {
-          setSortFilter((filter) => {
-            if (!filter) {
-              return "asc";
-            }
-            return filter === "asc" ? "desc" : "asc";
-          });
-          setSortNotificationOpen(true);
-        }}
-        category={category}
-        onFilterClick={() => setModalOpen(true)}
-        filterOption={priceFilter}
-        sortOption={sortFilter}
-      />
-      <ProductsList
-        onBuy={(product) => {
-          setNotificationOpen(true);
-          dispatch(addProduct({ ...product, amount: 1 }));
-        }}
-        products={productsLoaded}
-      />
+      <div className="products-main-content-container">
+        <Header onMenuOpen={() => setMenuOpen((old) => !old)} />
+        <Filter
+          onSortClick={() => {
+            setSortFilter((filter) => {
+              if (!filter) {
+                return "asc";
+              }
+              return filter === "asc" ? "desc" : "asc";
+            });
+            setSortNotificationOpen(true);
+          }}
+          category={category}
+          onFilterClick={() => setModalOpen(true)}
+          filterOption={priceFilter}
+          sortOption={sortFilter}
+        />
+        <ProductsList
+          onBuy={(product) => {
+            setNotificationOpen(true);
+            dispatch(addProduct({ ...product, amount: 1 }));
+          }}
+          products={productsLoaded}
+        />
+      </div>
       <BuyNotification openBuyNotification={notificationOpen} />
       <SortNotification
         openSortNotification={sortNotificationOpen}
