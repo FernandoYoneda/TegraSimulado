@@ -1,11 +1,14 @@
 import { useEffect, useState } from "react";
+import { useAppSelector, useAppDispatch } from "../app/hooks";
+import {
+  removeProductById,
+  selectProducts,
+  incrementByAmount,
+} from "../features/products/productsSlice";
 
 //components
 import Header from "../components/Header";
-import Filter from "../domain/product/Filter";
 import SideBar from "../domain/product/SideBar";
-
-import imageSVG from "../assets/image/mikael-stenberg-cJeGGOI8eE0-unsplash.jpg";
 
 //pages
 import BuyNotification from "../domain/product/Notification/Buy";
@@ -21,6 +24,8 @@ const CartPage = () => {
   const [category, setCategory] = useState("Todos");
   const [notificationOpen, setNotificationOpen] = useState(false);
   const [modalOpen, setModalOpen] = useState(false);
+  const products = useAppSelector(selectProducts);
+  const dispatch = useAppDispatch();
 
   useEffect(() => {
     if (notificationOpen) {
@@ -39,38 +44,11 @@ const CartPage = () => {
       <Header onMenuOpen={() => setMenuOpen((old) => !old)} />
       <CartTitle />
       <BuyingCards
-        products={[
-          {
-            id: 1,
-            image: imageSVG,
-            name: "Coca-cola Zero",
-            description: "(esse produto é feito com cola, e é zero açucar)",
-            price: 5.0,
-            category: "Bebidas",
-          },
-          {
-            id: 2,
-            image: imageSVG,
-            name: "Coca-cola Zero",
-            description: "(esse produto é feito com cola, e é zero açucar)",
-            price: 5.0,
-            category: "Bebidas",
-          },
-          {
-            id: 3,
-            image: imageSVG,
-            name: "Coca-cola Zero",
-            description: "(esse produto é feito com cola, e é zero açucar)",
-            price: 5.0,
-            category: "Bebidas",
-          },
-        ]}
-        onRemove={function (): void {
-          throw new Error("Function not implemented.");
-        }}
-        onAmountChange={function (id: number, amount: number): void {
-          throw new Error("Function not implemented.");
-        }}
+        products={products}
+        onRemove={(id) => dispatch(removeProductById(id))}
+        onAmountChange={(id, amount) =>
+          dispatch(incrementByAmount({ id, amount }))
+        }
       />
       <DiscountCard />
       <PriceTable />

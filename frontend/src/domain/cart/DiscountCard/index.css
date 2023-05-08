@@ -49,3 +49,7 @@
   border: none;
   letter-spacing: 0.5px;
 }
+
+.discountcard-add button:hover {
+  background: #b67600;
+}

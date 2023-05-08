@@ -5,10 +5,10 @@ import Image from "../../../components/Image";
 import ProductNameLabel from "../../../components/Label/Product/Name";
 import { FC } from "react";
 import Select from "../../../components/Select";
-import { Product } from "../../product/types";
+import { CartProduct } from "../../../features/products/productsSlice";
 
 type BuyingCardsProps = {
-  products: Product[];
+  products: CartProduct[];
   onRemove: (id: number) => void;
   onAmountChange: (id: number, amount: number) => void;
 };
@@ -36,7 +36,10 @@ const BuyingCards: FC<BuyingCardsProps> = ({
                 currency: "BRL",
               }).format(p.price)}
             />
-            <Select onChange={(value) => onAmountChange(p.id, value)} />
+            <Select
+              onChange={(value) => onAmountChange(p.id, value)}
+              value={p.amount}
+            />
           </div>
           <span
             className="material-symbols-outlined close"

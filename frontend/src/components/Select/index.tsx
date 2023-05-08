@@ -3,11 +3,13 @@ import "./index.css";
 
 type SelectProps = {
   onChange: (value: number) => void;
+  value: string | number | readonly string[] | undefined;
 };
 
-const Select: FC<SelectProps> = ({ onChange }) => {
+const Select: FC<SelectProps> = ({ onChange, value }) => {
   return (
     <select
+      value={value}
       onChange={(e) => onChange(Number(e.target.value))}
       className="select"
     >

@@ -4,7 +4,7 @@ import { FC } from "react";
 import { Product } from "../types";
 
 type ProductsProps = {
-  onBuy: (id: number) => void;
+  onBuy: (product: Product) => void;
   products: Product[];
 };
 
@@ -18,7 +18,7 @@ const Products: FC<ProductsProps> = ({ onBuy, products }) => {
           name={product.name}
           description={product.description}
           price={product.price}
-          onClick={() => onBuy(product.id)}
+          onClick={() => onBuy(product)}
         />
       ))}
     </div>

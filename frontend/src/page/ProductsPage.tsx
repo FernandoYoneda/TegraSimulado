@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import products from "../assets/json/products.json";
 import { Product } from "../domain/product/types";
+import { useAppDispatch } from "../app/hooks";
+import { addProduct } from "../features/products/productsSlice";
 
 //components
 import Header from "../components/Header";
@@ -25,6 +27,7 @@ const ProductsPage = () => {
     to: number;
   }>(null);
   const [sortFilter, setSortFilter] = useState<null | string>(null);
+  const dispatch = useAppDispatch();
 
   useEffect(() => {
     function loadProducts() {
@@ -99,7 +102,10 @@ const ProductsPage = () => {
         sortOption={sortFilter}
       />
       <ProductsList
-        onBuy={() => setNotificationOpen(true)}
+        onBuy={(product) => {
+          setNotificationOpen(true);
+          dispatch(addProduct({ ...product, amount: 1 }));
+        }}
         products={productsLoaded}
       />
       <BuyNotification openBuyNotification={notificationOpen} />

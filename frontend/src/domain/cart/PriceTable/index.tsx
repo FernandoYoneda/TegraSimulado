@@ -1,6 +1,10 @@
 import "./index.css";
+import { selectProductsPrice } from "../../../features/products/productsSlice";
+import { useAppSelector } from "../../../app/hooks";
 
 const PriceTable = () => {
+  const price = useAppSelector(selectProductsPrice);
+
   return (
     <div className="pricetable">
       <div className="pricetable-container">
@@ -8,7 +12,12 @@ const PriceTable = () => {
           <span>SUBTOTAL</span>
         </div>
         <div className="c2">
-          <span>R$83,00</span>
+          <span>
+            {new Intl.NumberFormat("pt-BR", {
+              style: "currency",
+              currency: "BRL",
+            }).format(price)}
+          </span>
         </div>
         <div className="c1">
           <span>ENTREGA</span>
@@ -22,7 +31,12 @@ const PriceTable = () => {
           <span>TOTAL</span>
         </div>
         <div className="c2">
-          <span>R$83,00</span>
+          <span>
+            {new Intl.NumberFormat("pt-BR", {
+              style: "currency",
+              currency: "BRL",
+            }).format(price)}
+          </span>
         </div>
       </div>
     </div>

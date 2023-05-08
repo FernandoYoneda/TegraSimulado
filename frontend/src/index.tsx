@@ -14,7 +14,8 @@ const container = document.getElementById("root")!;
 const root = createRoot(container);
 
 const router = createBrowserRouter([
-  { path: "/", element: <ProductsPage /> },
+  { path: "/", element: <LoginPage /> },
+  { path: "/produtos", element: <ProductsPage /> },
   { path: "/carrinho", element: <CartPage /> },
   { path: "/cadastro", element: <RegisterPage /> },
   { path: "/login", element: <LoginPage /> },

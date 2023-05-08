@@ -5,7 +5,7 @@ const Footer = () => {
   return (
     <div className="cart-footer">
       <div className="cart-footer-link-container">
-        <Link to="/">Escolher mais</Link>
+        <Link to="/produtos">Escolher mais</Link>
       </div>
       <div>
         <button>Finalizar compra</button>

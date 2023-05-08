@@ -35,3 +35,7 @@
   color: #ffff;
   border: none;
 }
+
+.cart-footer button:hover {
+  background: #b67600;
+}

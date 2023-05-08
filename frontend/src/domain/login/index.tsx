@@ -21,7 +21,7 @@ const Login = () => {
           text="Entrar"
           variant="big"
           type="submit"
-          onClick={() => navigate("/")}
+          onClick={() => navigate("/produtos")}
         />
       </form>
       <Spacer />
