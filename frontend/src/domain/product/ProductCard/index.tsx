@@ -6,6 +6,8 @@ import ProductDescriptionLabel from "../../../components/Label/Product/Descripti
 import Image from "../../../components/Image";
 import ProductNameLabel from "../../../components/Label/Product/Name";
 import "./index.css";
+import { selectIsUserAdmin } from "../../../features/user/userSlice";
+import { useAppSelector } from "../../../app/hooks";
 
 type ProductCardProps = {
   image: string;
@@ -21,6 +23,8 @@ const ProductCard: FC<ProductCardProps> = ({
   price,
   onClick,
 }) => {
+  const isUserAdmin = useAppSelector(selectIsUserAdmin);
+
   return (
     <Card>
       <div className="image-spacing">
@@ -39,7 +43,11 @@ const ProductCard: FC<ProductCardProps> = ({
             currency: "BRL",
           }).format(price)}
         />
-        <Button onClick={onClick} text="Comprar" variant="small" />
+        <Button
+          onClick={onClick}
+          text={isUserAdmin ? "Editar" : "Comprar"}
+          variant="small"
+        />
       </div>
     </Card>
   );

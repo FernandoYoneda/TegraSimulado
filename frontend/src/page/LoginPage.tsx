@@ -1,11 +1,14 @@
 import Login from "../domain/login";
 import LoginContainer from "../domain/login/Container";
+import DesktopImageContainer from "../components/DesktopImageContainer";
 
 const LoginPage = () => {
   return (
-    <LoginContainer>
-      <Login />
-    </LoginContainer>
+    <DesktopImageContainer>
+      <LoginContainer>
+        <Login />
+      </LoginContainer>
+    </DesktopImageContainer>
   );
 };
 

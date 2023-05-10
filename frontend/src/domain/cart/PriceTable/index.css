@@ -73,5 +73,9 @@
   .pricetable .c2 {
     width: 180px;
     height: 54px;
+    font-size: 20px;
+  }
+  .pricetable .c2 span u {
+    font-size: 12px;
   }
 }
