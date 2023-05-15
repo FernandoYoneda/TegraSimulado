@@ -57,7 +57,7 @@
 @media only screen and (min-width: 1024px) {
   .discountcard {
     width: 704px;
-    min-width: 704px;
+    min-width: 640px;
     height: 128px;
     box-sizing: border-box;
     padding: 0 40px;
@@ -70,5 +70,4 @@
   .discountcard-add input {
     width: 200px;
   }
-
 }

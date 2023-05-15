@@ -1,0 +1,156 @@
+.edit-product-container {
+  background: #6a0000;
+  width: 100%;
+  min-height: 100vh;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  gap: 20px;
+}
+
+.edit-product-title p {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 15px;
+  color: #e6a11f;
+}
+
+.edit-product-form-container {
+  display: flex;
+  flex-direction: column-reverse;
+  gap: 15px;
+  margin-top: 25px;
+}
+
+.edit-product-form {
+  display: flex;
+  flex-direction: column-reverse;
+  gap: 15px;
+}
+
+.edit-product-input-field {
+  gap: 15px;
+  display: flex;
+  flex-direction: column;
+}
+
+.edit-product-field {
+  background: #ffffff;
+  border: 0.5px solid rgba(0, 0, 0, 0.3);
+  border-radius: 5px;
+  height: 30px;
+}
+
+.description::placeholder {
+  padding-top: 12px;
+}
+
+.edit-product-input-field-price {
+  width: 90px;
+  height: 30px;
+}
+
+.edit-product-image-preview {
+  width: 150px;
+  height: 150px;
+}
+
+.edit-product-image-preview-input {
+  display: none;
+}
+
+.edit-product-buttons-container {
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.edit-product-buttons {
+  gap: 15px;
+  display: flex;
+}
+
+.edit-product-cancel-button {
+  background-color: transparent;
+  color: #fff;
+  border: none;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.edit-product-create-button {
+  background: #dc9000;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 5px;
+  border: none;
+  width: 110px;
+  height: 35px;
+  color: #ffff;
+  cursor: pointer;
+}
+
+.edit-product-create-button:hover {
+  background-color: #b67600;
+}
+
+@media only screen and (min-width: 1024px) {
+  .edit-product-title {
+    margin-top: 76px;
+  }
+
+  .edit-product-input-field {
+    width: 100%;
+    gap: 57px;
+  }
+
+  .edit-product-title p {
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    position: relative;
+    left: -25px;
+  }
+
+  .edit-product-form {
+    flex-direction: row;
+    gap: 40px;
+    margin-top: 31px;
+  }
+
+  .edit-product-fields-container {
+    width: 1000px;
+    margin: 36px auto;
+  }
+
+  .edit-product-image-preview {
+    height: 265px;
+    width: 265px;
+  }
+
+  .edit-product-field {
+    height: 45px;
+    width: 100%;
+  }
+
+  .edit-product-cancel-button {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    height: 30px;
+  }
+
+  .edit-product-create-button {
+    width: 139px;
+    height: 41px;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+  }
+
+  .edit-product-input-field-price {
+    width: 138px;
+    height: 45px;
+  }
+}

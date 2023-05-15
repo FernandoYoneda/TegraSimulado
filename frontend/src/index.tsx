@@ -9,6 +9,7 @@ import ProductsPage from "./page/ProductsPage";
 import CartPage from "./page/CartPage";
 import RegisterPage from "./page/RegisterPage";
 import LoginPage from "./page/LoginPage";
+import ProductManagePage from "./page/ProductManagePage";
 
 const container = document.getElementById("root")!;
 const root = createRoot(container);
@@ -19,6 +20,7 @@ const router = createBrowserRouter([
   { path: "/carrinho", element: <CartPage /> },
   { path: "/cadastro", element: <RegisterPage /> },
   { path: "/login", element: <LoginPage /> },
+  { path: "/produtos/gerenciar", element: <ProductManagePage /> },
 ]);
 
 root.render(

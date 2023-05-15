@@ -9,6 +9,7 @@ type FilterProps = {
   filterOption: null | unknown;
   onSortClick: () => void;
   sortOption: null | unknown;
+  onCreateClick: () => void;
 };
 
 const Filter: FC<FilterProps> = ({
@@ -17,6 +18,7 @@ const Filter: FC<FilterProps> = ({
   filterOption,
   onSortClick,
   sortOption,
+  onCreateClick,
 }) => {
   const isUserAdmin = useAppSelector(selectIsUserAdmin);
 
@@ -45,7 +47,11 @@ const Filter: FC<FilterProps> = ({
         >
           sort_by_alpha
         </span>
-        {isUserAdmin && <button className="add-button">Adicionar +</button>}
+        {isUserAdmin && (
+          <button className="add-button" onClick={onCreateClick}>
+            Adicionar +
+          </button>
+        )}
       </div>
     </div>
   );

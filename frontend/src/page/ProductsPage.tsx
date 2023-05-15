@@ -2,7 +2,12 @@ import { useEffect, useState } from "react";
 import products from "../assets/json/products.json";
 import { Product } from "../domain/product/types";
 import { useAppDispatch } from "../app/hooks";
-import { addProduct } from "../features/products/productsSlice";
+import {
+  addProduct,
+  clearEditProduct,
+  editProduct,
+} from "../features/products/productsSlice";
+import { useNavigate } from "react-router-dom";
 
 //components
 import Header from "../components/Header";
@@ -28,6 +33,7 @@ const ProductsPage = () => {
   }>(null);
   const [sortFilter, setSortFilter] = useState<null | string>(null);
   const dispatch = useAppDispatch();
+  const navigate = useNavigate();
 
   useEffect(() => {
     function loadProducts() {
@@ -88,6 +94,10 @@ const ProductsPage = () => {
       <div className="products-main-content-container">
         <Header onMenuOpen={() => setMenuOpen((old) => !old)} />
         <Filter
+          onCreateClick={() => {
+            dispatch(clearEditProduct());
+            navigate("/produtos/gerenciar");
+          }}
           onSortClick={() => {
             setSortFilter((filter) => {
               if (!filter) {
@@ -103,6 +113,10 @@ const ProductsPage = () => {
           sortOption={sortFilter}
         />
         <ProductsList
+          onEdit={(product) => {
+            dispatch(editProduct(product));
+            navigate("/produtos/gerenciar");
+          }}
           onBuy={(product) => {
             setNotificationOpen(true);
             dispatch(addProduct({ ...product, amount: 1 }));

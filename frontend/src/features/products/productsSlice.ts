@@ -9,6 +9,7 @@ export type CartProduct = Product & {
 export interface CartState {
   products: CartProduct[];
   coupon?: { id: string; discount: number };
+  productEditing?: Product;
 }
 
 const initialState: CartState = {
@@ -41,12 +42,23 @@ export const productsSlice = createSlice({
 
       state.products = tempProducts;
     },
+    editProduct: (state, action: PayloadAction<Product>) => {
+      state.productEditing = { ...action.payload };
+    },
+    clearEditProduct: (state) => {
+      state.productEditing = undefined;
+    },
   },
   extraReducers: (builder) => {},
 });
 
-export const { incrementByAmount, addProduct, removeProductById } =
-  productsSlice.actions;
+export const {
+  incrementByAmount,
+  addProduct,
+  removeProductById,
+  clearEditProduct,
+  editProduct,
+} = productsSlice.actions;
 
 export const selectProducts = (state: RootState) => state.products.products;
 export const selectProductsPrice = (state: RootState) => {
