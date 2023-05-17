@@ -61,6 +61,8 @@ export const {
 } = productsSlice.actions;
 
 export const selectProducts = (state: RootState) => state.products.products;
+export const selectProductEditing = (state: RootState) =>
+  state.products.productEditing;
 export const selectProductsPrice = (state: RootState) => {
   const total = state.products.products
     .map((p) => p.amount * p.price)

@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import products from "../assets/json/products.json";
 import { Product } from "../domain/product/types";
 import { useAppDispatch } from "../app/hooks";
 import {
@@ -8,6 +7,7 @@ import {
   editProduct,
 } from "../features/products/productsSlice";
 import { useNavigate } from "react-router-dom";
+import { config } from "../config";
 
 //components
 import Header from "../components/Header";
@@ -37,7 +37,10 @@ const ProductsPage = () => {
 
   useEffect(() => {
     function loadProducts() {
-      return Promise.resolve(products)
+      return fetch(`${config.api.url}/produtos`)
+        .then(async (p) => {
+          return (await p.json()) as Product[];
+        })
         .then((p) => {
           if (category === "Todos") return p;
           else {
