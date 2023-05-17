@@ -1,0 +1,15 @@
+version: "3.3"
+
+services:
+  adminer:
+    image: adminer
+    ports:
+      - 8080:8080
+  database:
+    image: "bitnami/postgresql:15.2.0"
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRESQL_USERNAME=my_user
+      - POSTGRESQL_PASSWORD=1234
+      - POSTGRESQL_DATABASE=tegrafood

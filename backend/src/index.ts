@@ -16,7 +16,7 @@ setUpi18n();
 
 app
   .use(cors())
-  .use(bodyparser())
+  .use(bodyparser({ jsonLimit: "50mb" }))
   .use(router.routes())
   .use(router.allowedMethods())
   .use(ProductsRoutes.routes())
