@@ -1,0 +1,53 @@
+version: "3.3"
+
+services:
+  adminer:
+    image: adminer
+    ports:
+      - 8080:8080
+    depends_on:
+      - database
+
+  database:
+    image: "bitnami/postgresql:15.2.0"
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRESQL_USERNAME=my_user
+      - POSTGRESQL_PASSWORD=1234
+      - POSTGRESQL_DATABASE=tegrafood
+
+  backend:
+    build:
+      context: ./backend
+    ports:
+      - "5000:5000"
+    environment:
+      - DATABASE_HOST=database
+      - DATABASE_PORT=5432
+      - DATABASE_USER=my_user
+      - DATABASE_PASSWORD=1234
+      - DATABASE_DBNAME=tegrafood
+    depends_on:
+      - database
+
+  migrations:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile.migrations
+    environment:
+      - DATABASE_HOST=database
+      - DATABASE_PORT=5432
+      - DATABASE_USER=my_user
+      - DATABASE_PASSWORD=1234
+      - DATABASE_DBNAME=tegrafood
+    depends_on:
+      - database
+
+  frontend:
+    build:
+      context: ./frontend
+    ports:
+      - "3000:3000"
+    depends_on:
+      - backend

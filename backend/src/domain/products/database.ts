@@ -1,23 +1,5 @@
-import { Pool, types } from "pg";
 import { Product } from "./schemas";
-
-export function getConnectionPool() {
-  const pool = new Pool({
-    max: 10,
-    host: "127.0.0.1",
-    port: 5432,
-    user: "my_user",
-    password: "1234",
-    database: "tegrafood",
-    idleTimeoutMillis: 30000,
-    connectionTimeoutMillis: 15000,
-  });
-  return pool;
-}
-types.setTypeParser(types.builtins.INT8, parseInt);
-types.setTypeParser(types.builtins.FLOAT8, parseFloat);
-types.setTypeParser(types.builtins.NUMERIC, parseFloat);
-const pool = getConnectionPool();
+import pool from "../../database";
 
 export function getProducts() {
   return pool.query("select * from products").then((products) => products.rows);

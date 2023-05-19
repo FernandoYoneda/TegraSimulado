@@ -5,7 +5,7 @@ const settings = {
     host: process.env.DATABASE_HOST || "127.0.0.1",
     database: process.env.DATABASE_DBNAME || "tegrafood",
     user: process.env.DATABASE_USER || "my_user",
-    password: process.env.DATABASE_PASS || "1234",
+    password: process.env.DATABASE_PASSWORD || "1234",
   },
   pool: {
     min: 2,
